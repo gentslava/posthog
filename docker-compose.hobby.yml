@@ -142,21 +142,22 @@ services:
             - kafka
             - objectstorage
 
-    proxy:
-        extends:
-            file: docker-compose.base.yml
-            service: proxy
-        ports:
-            - '80:80'
-            - '443:443'
-        volumes:
-            - caddy-data:/data
-            - caddy-config:/config
-        environment:
-            CADDY_TLS_BLOCK: $TLS_BLOCK
-            CADDY_HOST: '$DOMAIN, http://, https://'
-        depends_on:
-            - web
+    # proxy:
+    #     extends:
+    #         file: docker-compose.base.yml
+    #         service: proxy
+    #     ports:
+    #         - '80:80'
+    #         - '443:443'
+    #     volumes:
+    #         - caddy-data:/data
+    #         - caddy-config:/config
+    #     environment:
+    #         CADDY_TLS_BLOCK: $TLS_BLOCK
+    #         CADDY_HOST: '$DOMAIN, http://, https://'
+    #     depends_on:
+    #         - web
+    
     objectstorage:
         extends:
             file: docker-compose.base.yml
