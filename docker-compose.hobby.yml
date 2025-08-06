@@ -234,7 +234,7 @@ services:
             file: docker-compose.base.yml
             service: cyclotron-janitor
         build:
-            context: ./posthog/rust
+            context: ./rust
         environment:
             DATABASE_URL: 'postgres://posthog:posthog@db:5432/posthog'
             KAFKA_HOSTS: 'kafka:9092'
@@ -246,21 +246,21 @@ services:
 
     capture:
         build:
-            context: ./posthog/rust
+            context: ./rust
         extends:
             file: docker-compose.base.yml
             service: capture
 
     replay-capture:
         build:
-            context: ./posthog/rust
+            context: ./rust
         extends:
             file: docker-compose.base.yml
             service: replay-capture
 
     property-defs-rs:
         build:
-            context: ./posthog/rust
+            context: ./rust
         extends:
             file: docker-compose.base.yml
             service: property-defs-rs
@@ -278,7 +278,7 @@ services:
 
     feature-flags:
         build:
-            context: ./posthog/rust
+            context: ./rust
         extends:
             file: docker-compose.base.yml
             service: feature-flags
